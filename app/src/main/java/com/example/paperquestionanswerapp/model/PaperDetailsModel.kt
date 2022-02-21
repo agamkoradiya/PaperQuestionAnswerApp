@@ -7,5 +7,6 @@ package com.example.paperquestionanswerapp.model
 data class PaperDetailsModel(
     val index: Int? = null,
     val date: String = "",
-    val title: String = ""
+    val title: String = "",
+    val id:String = ""
 )
