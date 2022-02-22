@@ -29,7 +29,7 @@ class CoursesSemesterViewModel @Inject constructor(
         getCourses()
     }
 
-    private fun getCourses() {
+     fun getCourses() {
         _courses.postValue(Event(Resource.Loading()))
         viewModelScope.launch(dispatcher) {
             val result = courseAndPaperDetailsRepository.getCourses()

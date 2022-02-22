@@ -1,6 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:id="@+id/nav_graph">
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/coursesFragment">
 
+    <fragment
+        android:id="@+id/coursesFragment"
+        android:name="com.example.paperquestionanswerapp.ui.fragment.courses_fragment.CoursesFragment"
+        android:label="fragment_courses"
+        tools:layout="@layout/fragment_courses" >
+        <action
+            android:id="@+id/action_coursesFragment_to_semestersFragment"
+            app:destination="@id/semestersFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/semestersFragment"
+        android:name="com.example.paperquestionanswerapp.ui.fragment.semester_fragment.SemestersFragment"
+        android:label="fragment_semesters"
+        tools:layout="@layout/fragment_semesters" />
 </navigation>
