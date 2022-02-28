@@ -1,4 +1,4 @@
-package com.example.paperquestionanswerapp.ui.shared_view_models
+package com.example.paperquestionanswerapp.ui.fragment.courses_fragment
 
 import androidx.lifecycle.*
 import com.example.paperquestionanswerapp.model.CourseModel
@@ -16,7 +16,7 @@ import javax.inject.Inject
  */
 
 @HiltViewModel
-class CoursesSemesterViewModel @Inject constructor(
+class CoursesViewModel @Inject constructor(
     private val courseAndPaperDetailsRepository: CourseAndPaperDetailsRepository,
     private val dispatcher: CoroutineDispatcher = Dispatchers.Main,
     private val state: SavedStateHandle

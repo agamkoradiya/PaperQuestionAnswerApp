@@ -5,51 +5,18 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:layout_margin="10dp"
-    android:backgroundTint="@color/off_white"
     tools:context=".ui.fragment.courses_fragment.CoursesFragment">
 
-    <fr.castorflex.android.circularprogressbar.CircularProgressBar
+    <ProgressBar
         android:id="@+id/progress_bar"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
-        android:elevation="1dp"
-        android:visibility="gone"
-        android:indeterminate="true"
-        app:cpb_color="#FFee44"
-        app:cpb_colors="@array/colors"
-        app:cpb_max_sweep_angle="300"
-        app:cpb_min_sweep_angle="10"
-        app:cpb_rotation_speed="1.0"
-        app:cpb_stroke_width="4dp"
-        app:cpb_sweep_speed="1.0"
+        style="?android:attr/progressBarStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
-
-    <!--    <fr.castorflex.android.smoothprogressbar.SmoothProgressBar-->
-    <!--        android:id="@+id/smooth_progress_bar"-->
-    <!--        android:layout_width="match_parent"-->
-    <!--        android:layout_height="wrap_content"-->
-    <!--        android:layout_margin="10dp"-->
-    <!--        android:indeterminate="true"-->
-    <!--        android:padding="30dp"-->
-    <!--        app:layout_constraintBottom_toBottomOf="parent"-->
-    <!--        app:layout_constraintEnd_toEndOf="parent"-->
-    <!--        app:layout_constraintHorizontal_bias="0.5"-->
-    <!--        app:layout_constraintStart_toStartOf="parent"-->
-    <!--        app:layout_constraintTop_toTopOf="parent"-->
-    <!--        app:spb_color="#FF0000"-->
-    <!--        app:spb_mirror_mode="false"-->
-    <!--        app:spb_progressiveStart_activated="true"-->
-    <!--        app:spb_progressiveStart_speed="1.5"-->
-    <!--        app:spb_progressiveStop_speed="3.4"-->
-    <!--        app:spb_reversed="true"-->
-    <!--        app:spb_sections_count="4"-->
-    <!--        app:spb_speed="2.0"-->
-    <!--        app:spb_stroke_separator_length="4dp"-->
-    <!--        app:spb_stroke_width="4dp" />-->
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/courses_recycle_view"

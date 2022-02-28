@@ -7,7 +7,9 @@
         <entry key="..\:/Users/AGAM/AndroidStudioProjects/PaperQuestionAnswerApp/app/src/main/res/drawable/ic_image.xml" value="0.134" />
         <entry key="..\:/Users/AGAM/AndroidStudioProjects/PaperQuestionAnswerApp/app/src/main/res/layout/activity_main.xml" value="0.20416666666666666" />
         <entry key="..\:/Users/AGAM/AndroidStudioProjects/PaperQuestionAnswerApp/app/src/main/res/layout/fragment_courses.xml" value="0.22" />
-        <entry key="..\:/Users/AGAM/AndroidStudioProjects/PaperQuestionAnswerApp/app/src/main/res/layout/item_course.xml" value="0.33" />
+        <entry key="..\:/Users/AGAM/AndroidStudioProjects/PaperQuestionAnswerApp/app/src/main/res/layout/fragment_subjects.xml" value="0.19166666666666668" />
+        <entry key="..\:/Users/AGAM/AndroidStudioProjects/PaperQuestionAnswerApp/app/src/main/res/layout/item_course.xml" value="0.22" />
+        <entry key="..\:/Users/AGAM/AndroidStudioProjects/PaperQuestionAnswerApp/app/src/main/res/layout/item_subject.xml" value="0.20416666666666666" />
       </map>
     </option>
   </component>

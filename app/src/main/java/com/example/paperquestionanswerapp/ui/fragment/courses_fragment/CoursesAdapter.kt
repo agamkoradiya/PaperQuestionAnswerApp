@@ -15,12 +15,11 @@ import javax.inject.Inject
  * Created by Agam on 22-02-2022.
  */
 
-const val TAG = "CoursesAdapter"
+private const val TAG = "CoursesAdapter"
 
 class CoursesAdapter @Inject constructor(
     private val glide: RequestManager
-) :
-    ListAdapter<CourseModel, CoursesAdapter.CourseViewHolder>(DiffCallback()) {
+) : ListAdapter<CourseModel, CoursesAdapter.CourseViewHolder>(DiffCallback()) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CourseViewHolder {
         val binding =

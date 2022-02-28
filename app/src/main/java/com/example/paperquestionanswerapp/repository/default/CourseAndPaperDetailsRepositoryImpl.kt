@@ -39,6 +39,7 @@ class CourseAndPaperDetailsRepositoryImpl @Inject constructor(fireStore: Firebas
         safeCall {
             val subjectCollection = coursesCollection.document(course).collection(semester)
             val subjects = subjectCollection.get().await().toObjects(SubjectModel::class.java)
+
             Resource.Success(subjects)
         }
     }

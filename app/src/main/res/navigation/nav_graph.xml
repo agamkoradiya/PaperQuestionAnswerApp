@@ -11,12 +11,32 @@
         android:label="fragment_courses"
         tools:layout="@layout/fragment_courses" >
         <action
-            android:id="@+id/action_coursesFragment_to_semestersFragment"
-            app:destination="@id/semestersFragment" />
+            android:id="@+id/action_coursesFragment_to_subjectsFragment"
+            app:destination="@id/subjectsFragment" />
+
     </fragment>
     <fragment
-        android:id="@+id/semestersFragment"
-        android:name="com.example.paperquestionanswerapp.ui.fragment.semester_fragment.SemestersFragment"
-        android:label="fragment_semesters"
-        tools:layout="@layout/fragment_semesters" />
+        android:id="@+id/subjectsFragment"
+        android:name="com.example.paperquestionanswerapp.ui.fragment.subjects_fragment.SubjectsFragment"
+        android:label="fragment_subjects"
+        tools:layout="@layout/fragment_subjects" >
+        <argument
+            android:name="courseName"
+            app:argType="string" />
+        <argument
+            android:name="semesterName"
+            app:argType="string" />
+        <action
+            android:id="@+id/action_subjectsFragment_to_questionAnswerFragment"
+            app:destination="@id/questionAnswerFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/questionAnswerFragment"
+        android:name="com.example.paperquestionanswerapp.ui.fragment.question_answer_fragment.QuestionAnswerFragment"
+        android:label="fragment_question_answer"
+        tools:layout="@layout/fragment_question_answer" >
+        <argument
+            android:name="userSelectedPaper"
+            app:argType="com.example.paperquestionanswerapp.model.UserSelectedPaper" />
+    </fragment>
 </navigation>

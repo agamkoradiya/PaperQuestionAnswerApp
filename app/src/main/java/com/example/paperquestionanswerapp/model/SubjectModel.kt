@@ -6,6 +6,5 @@ package com.example.paperquestionanswerapp.model
 
 data class SubjectModel(
     val name: String = "",
-    val description: String = "",
-    val paperDetails : List<PaperDetailsModel>
+    val paperDetails : List<PaperDetailsModel> = emptyList()
 )
