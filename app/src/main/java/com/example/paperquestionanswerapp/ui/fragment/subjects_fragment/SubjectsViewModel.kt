@@ -40,5 +40,4 @@ class SubjectsViewModel @Inject constructor(
             _subjects.postValue(Event(result))
         }
     }
-
 }

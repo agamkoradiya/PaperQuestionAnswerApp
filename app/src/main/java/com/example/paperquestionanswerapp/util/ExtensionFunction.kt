@@ -13,3 +13,14 @@ fun View.show() {
 fun View.hide() {
     this.visibility = View.GONE
 }
+
+
+fun View.toggleArrow(isExpanded: Boolean): Boolean {
+    return if (isExpanded) {
+        this.animate().setDuration(200).rotation(180f)
+        true
+    } else {
+        this.animate().setDuration(200).rotation(0f)
+        false
+    }
+}

@@ -1,6 +1,8 @@
 package com.example.paperquestionanswerapp.repository.default
 
+import android.util.Log
 import com.example.paperquestionanswerapp.model.CourseModel
+import com.example.paperquestionanswerapp.model.PaperQueAnsModel
 import com.example.paperquestionanswerapp.model.SubjectModel
 import com.example.paperquestionanswerapp.repository.schema.CourseAndPaperDetailsRepository
 import com.example.paperquestionanswerapp.util.COURSES_COLLECTION
@@ -17,7 +19,9 @@ import javax.inject.Inject
  * Created by Agam on 20-02-2022.
  */
 
-class CourseAndPaperDetailsRepositoryImpl @Inject constructor(fireStore: FirebaseFirestore) :
+private const val TAG = "CourseAndPaperRepo"
+
+class CourseAndPaperDetailsRepositoryImpl @Inject constructor(private val fireStore: FirebaseFirestore) :
     CourseAndPaperDetailsRepository {
 
     // Collections
@@ -41,6 +45,26 @@ class CourseAndPaperDetailsRepositoryImpl @Inject constructor(fireStore: Firebas
             val subjects = subjectCollection.get().await().toObjects(SubjectModel::class.java)
 
             Resource.Success(subjects)
+        }
+    }
+
+    override suspend fun getPaperQueAns(
+        course: String,
+//        semester: String,
+//        subject: String,
+        paperId: String
+    ): Resource<PaperQueAnsModel?> = withContext(IO) {
+        safeCall {
+//            val queAnsCollection =
+//                fireStore.collection(course).document(semester).collection(subject)
+//                    .document(paperId)
+            val queAnsCollection =
+                fireStore.collection(course).document(paperId)
+            Log.d(TAG, "getPaperQueAns: collection : ${queAnsCollection.path}")
+            val paperQueAnsModel: PaperQueAnsModel? =
+                queAnsCollection.get().await().toObject(PaperQueAnsModel::class.java)
+            Log.d(TAG, "getPaperQueAns: $paperQueAnsModel")
+            Resource.Success(paperQueAnsModel)
         }
     }
 }

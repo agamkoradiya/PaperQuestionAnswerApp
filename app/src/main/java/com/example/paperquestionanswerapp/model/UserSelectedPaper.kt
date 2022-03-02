@@ -12,5 +12,6 @@ data class UserSelectedPaper(
     val courseName: String,
     val semesterName: String,
     val subjectName: String,
-    val paperId: String
+    val paperId: String,
+    val paperName: String
 ) : Parcelable

@@ -1,6 +1,7 @@
 package com.example.paperquestionanswerapp.repository.schema
 
 import com.example.paperquestionanswerapp.model.CourseModel
+import com.example.paperquestionanswerapp.model.PaperQueAnsModel
 import com.example.paperquestionanswerapp.model.SubjectModel
 import com.example.paperquestionanswerapp.util.Resource
 
@@ -13,4 +14,11 @@ interface CourseAndPaperDetailsRepository {
     suspend fun getCourses(): Resource<List<CourseModel>>
 
     suspend fun getSubjects(course: String, semester: String): Resource<List<SubjectModel>>
+
+    suspend fun getPaperQueAns(
+        course: String,
+//        semester: String,
+//        subject: String,
+        paperId: String
+    ): Resource<PaperQueAnsModel?>
 }

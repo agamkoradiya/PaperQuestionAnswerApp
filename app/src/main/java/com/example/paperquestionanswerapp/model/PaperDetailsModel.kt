@@ -6,7 +6,7 @@ package com.example.paperquestionanswerapp.model
 
 data class PaperDetailsModel(
     val index: Int? = null,
-    val isUnderProcess: Boolean = true,
+    val underProcess: Boolean? = null,
     val title: String = "",
     val id: String = ""
 )

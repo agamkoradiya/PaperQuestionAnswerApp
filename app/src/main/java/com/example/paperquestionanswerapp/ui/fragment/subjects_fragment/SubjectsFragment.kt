@@ -7,6 +7,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
@@ -14,6 +15,7 @@ import com.example.paperquestionanswerapp.databinding.FragmentSubjectsBinding
 import com.example.paperquestionanswerapp.model.PaperDetailsModel
 import com.example.paperquestionanswerapp.model.SubjectModel
 import com.example.paperquestionanswerapp.model.UserSelectedPaper
+import com.example.paperquestionanswerapp.ui.activity.MainActivity
 import com.example.paperquestionanswerapp.util.EventObserver
 import com.example.paperquestionanswerapp.util.hide
 import com.example.paperquestionanswerapp.util.show
@@ -64,7 +66,7 @@ class SubjectsFragment : Fragment() {
     private fun getPreviousData() {
         courseName = args.courseName
         semesterName = args.semesterName
-        requireActivity().actionBar?.title = semesterName
+        (requireActivity() as AppCompatActivity).supportActionBar?.title = courseName
     }
 
     private fun setUpRecyclerView() {
@@ -75,6 +77,8 @@ class SubjectsFragment : Fragment() {
     }
 
     private fun showPaperSelectionDialog(subjectModel: SubjectModel) {
+        selectedPaper = subjectModel.paperDetails[selectedItemIndex]
+
         val papers: List<String> = subjectModel.paperDetails.map { it.title }
         MaterialAlertDialogBuilder(requireContext())
             .setTitle("Select Paper")
@@ -89,13 +93,14 @@ class SubjectsFragment : Fragment() {
                 selectedItemIndex = which
                 selectedPaper = subjectModel.paperDetails[which]
             }
-            .setPositiveButton("Proceed") { _, _ ->
-                if (!selectedPaper.isUnderProcess) {
+            .setPositiveButton("Submit") { _, _ ->
+                if (!selectedPaper.underProcess!!) {
                     val userSelectedPaper = UserSelectedPaper(
                         courseName!!,
                         semesterName!!,
                         subjectModel.name,
-                        selectedPaper.id
+                        selectedPaper.id,
+                        selectedPaper.title
                     )
                     val action =
                         SubjectsFragmentDirections.actionSubjectsFragmentToQuestionAnswerFragment(
