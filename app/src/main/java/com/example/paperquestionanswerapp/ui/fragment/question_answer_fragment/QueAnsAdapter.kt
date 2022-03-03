@@ -4,11 +4,13 @@ import android.view.LayoutInflater
 import android.view.View.GONE
 import android.view.View.VISIBLE
 import android.view.ViewGroup
+import androidx.core.text.HtmlCompat
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.example.paperquestionanswerapp.databinding.ItemQueAnsBinding
 import com.example.paperquestionanswerapp.model.QueAnsModel
+import com.example.paperquestionanswerapp.util.ImageGetter
 import com.example.paperquestionanswerapp.util.toggleArrow
 import javax.inject.Inject
 
@@ -37,12 +39,20 @@ class QueAnsAdapter @Inject constructor() :
     inner class QueAnsViewHolder(private val binding: ItemQueAnsBinding) :
         RecyclerView.ViewHolder(binding.root) {
         fun bind(currentItem: QueAnsModel) {
-            binding.queTxt.text = currentItem.que
-            binding.ansTxt.text = currentItem.ans
+            binding.queTxt.text =
+                HtmlCompat.fromHtml(currentItem.que, HtmlCompat.FROM_HTML_MODE_LEGACY)
+            binding.ansTxt.text =
+                HtmlCompat.fromHtml(
+                    currentItem.ans,
+                    HtmlCompat.FROM_HTML_MODE_LEGACY,
+                    ImageGetter(binding.root.context.resources, binding.ansTxt),
+                    null
+                )
 
-            binding.showAnsBtn.setOnClickListener {
-                it.toggleArrow(binding.layoutExpand.visibility == GONE)
-                binding.layoutExpand.visibility = if (binding.layoutExpand.visibility == VISIBLE) GONE else VISIBLE
+            binding.parent.setOnClickListener {
+                binding.showAnsBtn.toggleArrow(binding.layoutExpand.visibility == GONE)
+                binding.layoutExpand.visibility =
+                    if (binding.layoutExpand.visibility == VISIBLE) GONE else VISIBLE
             }
 
         }
